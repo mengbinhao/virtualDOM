@@ -11,6 +11,7 @@ let createElement = (type, props, children) => {
 
 }
 
+//set various attribute
 let setAttr = (node, key, value) => {
   switch(key) {
     case 'value':
@@ -29,6 +30,7 @@ let setAttr = (node, key, value) => {
   }
 }
 
+//convert virtualDOM 2 realDOM
 let render = (elObj) => {
   let el = document.createElement(elObj.type)
   for (let key in elObj.props) {
