@@ -13,6 +13,7 @@ createElemtn => {type, props, children}
 - 一层一层比
 - 不会跨级比
 - 同层会复用,根据key
+
 ![](./images/dom-diff-1.png)
 
 
