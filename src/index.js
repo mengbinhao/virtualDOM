@@ -1,12 +1,23 @@
 import { createElement, render, renderDOM } from './element'
+import diff from './diff'
+import patch from './patch'
 
-let virtualDOM = createElement('ul', {class: 'title'}, [
+let virtualDOM1 = createElement('ul', {class: 'title'}, [
   createElement('li', {class: 'item'}, ['a']),
   createElement('li', {class: 'item'}, ['b']),
   createElement('li', {class: 'item'}, ['c'])
 ])
 
-console.log(render(virtualDOM))
+let virtualDOM2 = createElement('ul', {class: 'title-new'}, [
+  createElement('li', {class: 'item'}, ['1']),
+  createElement('div', {class: 'item'}, ['b'])
+])
 
-renderDOM(render(virtualDOM), window.root)
+let patches = diff(virtualDOM1, virtualDOM2)
+//console.log(patches)
+
+let el = render(virtualDOM1)
+patch(el, patches)
+
+renderDOM(el, window.root)
 

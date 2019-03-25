@@ -30,7 +30,7 @@ let setAttr = (node, key, value) => {
   }
 }
 
-//convert virtualDOM 2 realDOM
+//convert virtualDOM to realDOM
 let render = (elObj) => {
   let el = document.createElement(elObj.type)
   for (let key in elObj.props) {
@@ -47,4 +47,4 @@ let renderDOM = (el, target) => {
   target.appendChild(el)
 }
 
-export { createElement, render, renderDOM }
+export { createElement, render, renderDOM, Element}
